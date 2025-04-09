@@ -1,40 +1,32 @@
 import { sdk } from "@farcaster/frame-sdk";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAccount, useConnect, useSignMessage } from "wagmi";
 import Options from "./components/Options";
-import Grid from "./components/Grid";
 import Palette from "./components/Palette";
+import { Dotting, DottingRef, useDotting } from "dotting";
 
-const DEFAULT_GRID_COLOR = "#FF";
 function App() {
   useEffect(() => {
     sdk.actions.ready();
   }, []);
   const [currentColor, setCurrentColor] = useState("#FF");
-  const [gridSize, setGridSize] = useState(16);
-  const [grid, setGrid] = useState(
-    Array(gridSize * gridSize).fill(DEFAULT_GRID_COLOR)
-  );
-  const handleGridChange = (newGridSize: number) => {
-    setGridSize(newGridSize);
-    setGrid(Array(newGridSize * newGridSize).fill(DEFAULT_GRID_COLOR));
-  };
+  const ref = useRef<DottingRef>(null);
+  const { clear, downloadImage } = useDotting(ref);
+
   return (
     <>
       <div className="flex flex-row justify-between items-start flex-wrap gap-4">
-        <header className="text-phantom-color"><h1 class = 'text-4xl'>Pixel Art Creator</h1></header>
-        <Options
-          gridSize={gridSize}
-          grid={grid}
-          handleGridChange={handleGridChange}
-        />
+        <header className="text-phantom-color">
+          <h1 className="text-4xl">Pixel Art Creator</h1>
+        </header>
+        <Options clear={clear} downloadImage={downloadImage} />
       </div>
       <div className="flex flex-col justify-center items-center gap-5">
         <Palette
           currentColor={currentColor}
           setCurrentColor={setCurrentColor}
         />
-        <Grid currentColor={currentColor} gridSize={gridSize} grid={grid} />
+        <Dotting ref={ref} brushColor={currentColor} width={300} height={300} />
       </div>
       <ConnectMenu />
     </>

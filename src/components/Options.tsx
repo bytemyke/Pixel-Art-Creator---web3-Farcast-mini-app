@@ -1,10 +1,10 @@
+import { ImageDownloadOptions } from "dotting/build/src/components/Canvas/types";
 interface Props {
-  gridSize: number;
-  grid: string[];
-  handleGridChange: (newGridSize: number) => void;
+  clear: () => void;
+  downloadImage: (options: ImageDownloadOptions) => void;
 }
 export default function Options(props: Props) {
-  const { gridSize, handleGridChange } = props;
+  const { clear, downloadImage } = props;
   return (
     <div className="flex flex-col justify-start items-start flex-nowrap gap-8 ">
       {/* <label>Pick color:</label> */}
@@ -19,30 +19,23 @@ export default function Options(props: Props) {
           className="snes-button"
           onClick={() => {
             if (confirm("Press a button!\nEither OK or Cancel.")) {
-              handleGridChange(0);
+              clear();
               console.log("changed");
             }
           }}
         >
           Clear
         </button>
-        <button type="button" className="snes-button">
+        <button
+          type="button"
+          className="snes-button"
+          onClick={() => downloadImage({ isGridVisible: false, type: "png" })}
+        >
           Save
         </button>
         <button type="button" className="snes-button">
           Mint
         </button>
-      </div>
-      <div className="flex gap-3 pt-3 text-phantom-color text-2xl">
-        <label >Pick grid size:</label>
-        <input
-          min="0"
-          max="64"
-          type="number"
-          value={gridSize}
-          onChange={(e) => handleGridChange(+e.target.value)}
-          className="text-black"
-        />
       </div>
     </div>
   );

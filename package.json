@@ -23,6 +23,7 @@
     "canvas-toBlob": "^1.0.0",
     "css-loader": "^3.2.0",
     "dotenv-webpack": "^8.0.1",
+    "dotting": "^2.1.13",
     "file-loader": "^6.2.0",
     "file-saver": "^2.0.2",
     "gif-encoder": "^0.7.2",
