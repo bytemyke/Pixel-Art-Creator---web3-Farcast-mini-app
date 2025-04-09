@@ -1,18 +1,29 @@
-import { useState } from "react"
+import { useState } from "react";
 import ColorPaletteEditor from "./ColorPaletteEditor";
 // colorPallet: string[],
 // setColorPallet: (newCollorPallet: string[]) => void
 interface Props {
-    currentColor: string;
-    setCurrentColor: (newColor: string) => void
+  currentColor: string;
+  setCurrentColor: (newColor: string) => void;
 }
-export default function Palette(props:Props) {
-    const {currentColor, setCurrentColor} = props;
-    const [colorPallet, setColorPallet] = useState(["#fff", "#000", "#f00", "#0f0", "#00f", "#ff0"]);
-    console.log(currentColor);
+export default function Palette(props: Props) {
+  const { currentColor, setCurrentColor } = props;
+  const [colorPallet, setColorPallet] = useState([
+    "#fff",
+    "#000",
+    "#f00",
+    "#0f0",
+    "#00f",
+    "#ff0",
+  ]);
+  console.log(currentColor);
   return (
-    <div className = "pallet flex gap-0.5">
-        {/* <ColorPaletteEditor colorPallet={colorPallet} setColorPallet={setColorPallet} /> */}
+    <>
+      <ColorPaletteEditor
+        colorPallet={colorPallet}
+        setColorPallet={setColorPallet}
+      />
+      <div className="pallet flex gap-0.5">
         {colorPallet.map((color) => (
           <div
             key={color}
@@ -21,6 +32,7 @@ export default function Palette(props:Props) {
             onClick={() => setCurrentColor(color)}
           />
         ))}
-    </div>
-  )
+      </div>
+    </>
+  );
 }

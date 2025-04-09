@@ -1,14 +1,19 @@
 @import url('css/snes.min.css');
 @import "tailwindcss";
-
+body{
+  background-color: 
+  color-mix(in srgb, rgb(229, 229, 229) 45%, rgb(0, 0, 0));
+}
 :root {
-  background-color: #181818;
+  background-color: 
+  color-mix(in srgb, rgb(229, 229, 229) 45%, rgb(0, 0, 0));
+  /* background-color: #181818;
   color: rgba(255, 255, 255, 0.87);
   color-scheme: light dark;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.5; */
   text-rendering: optimizeLegibility;
 
   -webkit-font-smoothing: antialiased;
@@ -43,3 +48,48 @@
     padding: 4px 18px;
   }
 }
+.snes-button.tiny{
+  border-image-outset: 4.6px;
+  border-image-repeat: initial;
+  border-image-slice: 12;
+  border-width: 12px;
+  color: #2c3e50;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Press Start\ 2P, system-ui;
+  font-size: 18px;
+  letter-spacing: .05em;
+  line-height: .3;
+  padding: 1px 4.5px;
+  position: relative;
+  word-spacing: -.3em;
+}
+.app.snes-blockquote{
+  /* margin: 20px auto;
+  width:80%;
+  height:50%; */
+}
+.customBlockquoteContainer{
+      border: solid;
+      -o-border-image: var(--border-image);
+      border-image: var(--border-image);
+      border-image-outset: 6px;
+      border-image-repeat: initial;
+      border-image-slice: 12;
+      border-width: 12px;
+      /* color: #fff; */
+      /* display: block; */
+      padding: 0px;
+      /* position: relative; */
+      /* text-align: center; */
+      /* width: 100%; */
+      /* background-color:color-mix(in srgb,#5a7d9a,#000 55%);
+      background-color:color-mix(in srgb,#4eb6d9,#000 55%) */
+      background-color: 
+      color-mix(in srgb, rgb(229, 229, 229) 45%, rgb(0, 0, 0));
+  }
+  #app{
+    min-height: 90vh;
+    max-width: 2048px;
+    margin:2vh auto;
+  }

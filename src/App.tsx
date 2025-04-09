@@ -14,7 +14,7 @@ function App() {
   const { clear, downloadImage } = useDotting(ref);
 
   return (
-    <>
+    <div id= "app" className="snes-blockquote has-galaxy-bg">
       <div className="flex flex-row justify-between items-start flex-wrap gap-4">
         <header className="text-phantom-color">
           <h1 className="text-4xl">Pixel Art Creator</h1>
@@ -29,7 +29,7 @@ function App() {
         <Dotting ref={ref} brushColor={currentColor} width={300} height={300} />
       </div>
       <ConnectMenu />
-    </>
+    </div>
   );
 }
 
