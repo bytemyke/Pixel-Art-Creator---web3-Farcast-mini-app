@@ -41,7 +41,6 @@ export default function coloPaletteEditor(props: Props) {
 }
 const AccordionItem = (props: Props) => {
   const { colorPallet, setColorPallet } = props;
-  console.log(colorPallet, setColorPallet);
   const [active, setActive] = useState(false);
   const handleToggle = (e: any) => {
     e.preventDefault();

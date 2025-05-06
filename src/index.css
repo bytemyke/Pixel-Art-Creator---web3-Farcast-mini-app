@@ -93,3 +93,11 @@ body{
     max-width: 2048px;
     margin:2vh auto;
   }
+  .toolLogo{
+    color: #181818;
+    &:hover{
+      opacity: .2;
+    }
+    min-width: 40px;
+    margin-right:10px;
+  }

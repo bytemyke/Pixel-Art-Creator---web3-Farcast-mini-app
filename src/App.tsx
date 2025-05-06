@@ -1,9 +1,10 @@
 import { sdk } from "@farcaster/frame-sdk";
 import { useState, useEffect, useRef } from "react";
 import { useAccount, useConnect, useSignMessage } from "wagmi";
+import { Dotting, DottingRef, useDotting, BrushTool } from "dotting";
 import Options from "./components/Options";
 import Palette from "./components/Palette";
-import { Dotting, DottingRef, useDotting } from "dotting";
+import ToolPicker from "./components/ToolPicker";
 
 function App() {
   useEffect(() => {
@@ -11,22 +12,31 @@ function App() {
   }, []);
   const [currentColor, setCurrentColor] = useState("#FF");
   const ref = useRef<DottingRef>(null);
-  const { clear, downloadImage } = useDotting(ref);
-
+  const { clear, downloadImage,undo,redo } = useDotting(ref);
+  const [brushTool, setBrushTool] = useState<BrushTool>("DOT");
   return (
-    <div id= "app" className="snes-blockquote has-galaxy-bg">
+    <div id="app" className="snes-blockquote has-galaxy-bg">
       <div className="flex flex-row justify-between items-start flex-wrap gap-4">
         <header className="text-phantom-color">
           <h1 className="text-4xl">Pixel Art Creator</h1>
         </header>
         <Options clear={clear} downloadImage={downloadImage} />
       </div>
-      <div className="flex flex-col justify-center items-center gap-5">
+      <div className="flex flex-col justify-center items-center gap-5 h-[80vh]">
         <Palette
           currentColor={currentColor}
           setCurrentColor={setCurrentColor}
         />
-        <Dotting ref={ref} brushColor={currentColor} width={300} height={300} />
+        <ToolPicker setBrushTool={setBrushTool} undo={undo} redo={redo}  />
+        <Dotting
+          ref={ref}
+          isGridFixed={false}
+          brushColor={currentColor}
+          brushTool={brushTool}
+          width={"90%"}
+          height={"90%"}
+          backgroundColor={"#000000"}
+        />
       </div>
       <ConnectMenu />
     </div>
