@@ -18,21 +18,21 @@ export default function Palette(props: Props) {
   ]);
   console.log(currentColor);
   return (
-    <>
+    <div className = 'colorEditorOptions'>
       <ColorPaletteEditor
         colorPallet={colorPallet}
         setColorPallet={setColorPallet}
       />
-      <div className="pallet flex gap-0.5">
+      <div className="pallet">
         {colorPallet.map((color) => (
           <div
             key={color}
-            className="colorOption w-10 h-10 cursor-pointer hover:opacity-25"
+            className="colorOption w-10 h-10 cursor-pointer hover opacity-25"
             style={{ backgroundColor: color }}
             onClick={() => setCurrentColor(color)}
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }

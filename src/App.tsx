@@ -16,27 +16,29 @@ function App() {
   const [brushTool, setBrushTool] = useState<BrushTool>("DOT");
   return (
     <div id="app" className="snes-blockquote has-galaxy-bg">
-      <div className="flex flex-row justify-between items-start flex-wrap gap-4">
+      <div className="grid-container halves">
         <header className="text-phantom-color">
-          <h1 className="text-4xl">Pixel Art Creator</h1>
+          <h1>Pixel Art Creator</h1>
         </header>
         <Options clear={clear} downloadImage={downloadImage} />
       </div>
-      <div className="flex flex-col justify-center items-center gap-5 h-[80vh]">
+      <div id="main">
         <Palette
           currentColor={currentColor}
           setCurrentColor={setCurrentColor}
         />
         <ToolPicker setBrushTool={setBrushTool} undo={undo} redo={redo}  />
-        <Dotting
-          ref={ref}
-          isGridFixed={false}
-          brushColor={currentColor}
-          brushTool={brushTool}
-          width={"90%"}
-          height={"90%"}
-          backgroundColor={"#000000"}
-        />
+        <div id = "dottingDad">
+          <Dotting
+            ref={ref}
+            isGridFixed={false}
+            brushColor={currentColor}
+            brushTool={brushTool}
+            width={"90vw"}
+            height={"90vh"}
+            backgroundColor={"#000000"}
+          />
+        </div>
       </div>
       <ConnectMenu />
     </div>
