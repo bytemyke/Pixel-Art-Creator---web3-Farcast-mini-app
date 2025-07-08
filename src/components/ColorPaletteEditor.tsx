@@ -36,7 +36,7 @@ const ColorPalletEditorOptions = (props: Props) => {
   const selectedColor = useRef("#000000");
   return (
     <>
-      <label className="text-turquoise-color">Choose your color: </label>
+      <label className="text-turquoise-color">Add to palette: </label>
       <div className = 'selector'>
         <input
           type="color"

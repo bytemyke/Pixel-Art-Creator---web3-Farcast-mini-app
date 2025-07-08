@@ -23,7 +23,6 @@
     "canvas-toBlob": "^1.0.0",
     "css-loader": "^3.2.0",
     "dotenv-webpack": "^8.0.1",
-    "dotting": "^2.1.13",
     "file-loader": "^6.2.0",
     "file-saver": "^2.0.2",
     "gif-encoder": "^0.7.2",
@@ -41,7 +40,8 @@
     "react-addons-pure-render-mixin": "^15.6.2",
     "react-addons-shallow-compare": "^15.6.2",
     "react-beautiful-dnd": "^12.1.1",
-    "react-color": "^2.18.1",
+    "react-color": "^2.19.3",
+    "react-component-export-image": "^1.0.6",
     "react-cookie-consent": "^5.2.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^18.3.1",
@@ -73,6 +73,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
     "@wagmi/cli": "latest",
+    "sass-embedded": "^1.89.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.11"
   }

@@ -1,7 +1,10 @@
 import { sdk } from "@farcaster/frame-sdk";
 import { useState, useEffect, useRef } from "react";
 import { useAccount, useConnect, useSignMessage } from "wagmi";
-import Editor from "./components/Editor";
+// import { Dotting, DottingRef, useDotting, BrushTool } from "dotting";
+import Options from "./components/Options";
+import Palette from "./components/Palette";
+import ToolPicker from "./components/ToolPicker";
 
 function App() {
   useEffect(() => {
@@ -17,9 +20,26 @@ function App() {
         <header className="text-phantom-color">
           <h1>Pixel Art Creator</h1>
         </header>
+        <Options clear={clear} downloadImage={downloadImage} />
       </div>
       <div id="main">
-        <Editor></Editor>
+        <Palette
+          currentColor={currentColor}
+          setCurrentColor={setCurrentColor}
+        />
+        <ToolPicker setBrushTool={setBrushTool} undo={undo} redo={redo}  />
+        <div id = "dottingDad">
+          <Dotting
+            ref={ref}
+            brushColor={currentColor}
+            brushTool={brushTool}
+            width={"90vw"}
+            height={"90vh"}
+            backgroundColor={"#000000"}
+            isGridFixed = {false}
+            isPanZoomable = {false}
+          />
+        </div>
       </div>
       <ConnectMenu />
     </div>
