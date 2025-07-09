@@ -1,7 +1,6 @@
 import  { useRef } from "react";
-// @ts-ignore
 import Row from "./Row";
-import { exportComponentAsPNG } from "react-component-export-image";
+import html2canvas from 'html2canvas-pro';
 
 
 interface Props {
@@ -10,6 +9,16 @@ interface Props {
   selectedColor: string;
 }
 
+const exportComponentAsPNGz = (elementRef: React.RefObject<HTMLElement>) => {
+  if (elementRef.current) {
+    html2canvas(elementRef.current).then((canvas) => {
+      const link = document.createElement('a');
+      link.download = 'pixel-art.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  }
+};
 
 export default function DrawingPanel(props : Props) {
   const { width, height, selectedColor } = props;
@@ -27,7 +36,7 @@ export default function DrawingPanel(props : Props) {
       <div id="pixels" ref={panelRef}>
         {rows}
       </div>
-      <button onClick={() => exportComponentAsPNG(panelRef)} className="button">
+      <button onClick={() => {exportComponentAsPNGz(panelRef); console.log(panelRef);}} className="button">
         Export as PNG
       </button>
     </div>

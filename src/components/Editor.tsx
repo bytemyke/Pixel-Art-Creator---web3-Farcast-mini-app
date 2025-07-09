@@ -10,12 +10,13 @@ interface color {
   hex : string
 }
 export default function Editor() {
+  const DEFAULT_COLOR = '#ffffff00'
   const [panelWidth, setPanelWidth] = useState(16);
   const [panelHeight, setPanelHeight] = useState(16);
   const [hideOptions, setHideOptions] = useState(false);
   const [hideDrawingPanel, setHideDrawingPanel] = useState(true);
   const [buttonText, setButtonText] = useState("start drawing");
-  const [selectedColor, setColor] = useState("#f44336");
+  const [selectedColor, setColor] = useState(DEFAULT_COLOR);
   const [colorPallet, setColorPallet] = useState([
     "#fff",
     "#000",

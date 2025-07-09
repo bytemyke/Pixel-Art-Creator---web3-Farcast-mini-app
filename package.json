@@ -27,6 +27,7 @@
     "file-saver": "^2.0.2",
     "gif-encoder": "^0.7.2",
     "gm": "^1.23.1",
+    "html2canvas-pro": "^1.5.11",
     "immutable": "^3.8.2",
     "lost": "^8.3.1",
     "oauth": "^0.9.15",
