@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 interface Props {
   selectedColor: string;
+  editing: {
+    current: boolean;
+  }
 }
 
 export default function Pixel(props : Props) {
-  const { selectedColor } = props;
+  const { selectedColor, editing } = props;
 
-  const [pixelColor, setPixelColor] = useState("#fff");
+  const [pixelColor, setPixelColor] = useState("#ffffff00");
   const [oldColor, setOldColor] = useState(pixelColor);
   const [canChangeColor, setCanChangeColor] = useState(true);
 
@@ -35,7 +38,8 @@ export default function Pixel(props : Props) {
       onClick={applyColor}
       onMouseEnter={changeColorOnHover}
       onMouseLeave={resetColor}
-      style={{ backgroundColor: pixelColor }}
+      style={{ backgroundColor: pixelColor, border: editing.current === true ? '.1rem solid black' : 'none' }}
+      
     ></div>
   );
 }

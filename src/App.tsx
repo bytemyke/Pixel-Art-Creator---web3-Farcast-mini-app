@@ -7,7 +7,6 @@ function App() {
   useEffect(() => {
     sdk.actions.ready();
   }, []);
-  const [currentColor, setCurrentColor] = useState("#FF");
   // const ref = useRef<DottingRef>(null);
   // const { clear, downloadImage,undo,redo } = useDotting(ref);
   const [brushTool, setBrushTool] = useState("DOT");

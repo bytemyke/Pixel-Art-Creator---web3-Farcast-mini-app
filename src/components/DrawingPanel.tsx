@@ -11,7 +11,7 @@ interface Props {
 
 const exportComponentAsPNGz = (elementRef: React.RefObject<HTMLElement>) => {
   if (elementRef.current) {
-    html2canvas(elementRef.current).then((canvas) => {
+    html2canvas(elementRef.current, {backgroundColor: null}).then((canvas) => {
       const link = document.createElement('a');
       link.download = 'pixel-art.png';
       link.href = canvas.toDataURL('image/png');
@@ -23,12 +23,13 @@ const exportComponentAsPNGz = (elementRef: React.RefObject<HTMLElement>) => {
 export default function DrawingPanel(props : Props) {
   const { width, height, selectedColor } = props;
 
-  const panelRef = useRef();
-
+  const panelRef = useRef<HTMLDivElement>(null);
+  const editing = useRef(true);
+  
   let rows = [];
 
   for (let i = 0; i < height; i++) {
-    rows.push(<Row key={i} width={width} selectedColor={selectedColor} />);
+    rows.push(<Row key={i} width={width} selectedColor={selectedColor}  editing={editing}/>);
   }
 
   return (
