@@ -1,12 +1,9 @@
-import { useState } from "react";
 import Pixel from "./Pixel";
 
 interface Props {
   selectedColor: string;
   width: number;  
-  editing: {
-    current: boolean;
-  }
+  editing: boolean;
 }
 
 export default function Row(props : Props) {

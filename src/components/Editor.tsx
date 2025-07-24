@@ -16,14 +16,7 @@ export default function Editor() {
   const [hideDrawingPanel, setHideDrawingPanel] = useState(true);
   const [buttonText, setButtonText] = useState("start drawing");
   const [selectedColor, setColor] = useState("#fff");
-  const [colorPallet, setColorPallet] = useState([
-    "#fff",
-    "#000",
-    "#f00",
-    "#0f0",
-    "#00f",
-    "#ff0",
-  ]);
+  const [colorPallet, setColorPallet] = useState(['#ffffff', '#000000']);
 
   function initializeDrawingPanel() {
     setHideOptions(!hideOptions);
