@@ -19,7 +19,7 @@ $red: #f05454;
   border-radius: 0.25rem;
   padding: 1rem 4rem 2rem 4rem;
   margin-top: 2rem;
-
+  overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,6 +31,7 @@ $red: #f05454;
   h2 {
     margin-bottom: 1rem;
   }
+
 
   #options {
     display: flex;
@@ -93,4 +94,17 @@ $red: #f05454;
 .row {
   display: flex;
   width: fit-content;
+}
+@media (max-width: 549px) {
+  #editor {
+    margin-bottom: 20px;
+    padding: 0.5rem 2rem 1rem 2rem;
+    margin-top: 1rem;
+    .colorEditorOptions {
+      width: 85%;
+    }
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
 }

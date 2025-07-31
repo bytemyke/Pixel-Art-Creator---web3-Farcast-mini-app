@@ -1,5 +1,5 @@
 import { sdk } from "@farcaster/frame-sdk";
-import { useState, useEffect, useRef } from "react";
+import {  useEffect } from "react";
 import { useAccount, useConnect, useSignMessage } from "wagmi";
 import Editor from "./components/Editor";
 
@@ -9,7 +9,6 @@ function App() {
   }, []);
   // const ref = useRef<DottingRef>(null);
   // const { clear, downloadImage,undo,redo } = useDotting(ref);
-  const [brushTool, setBrushTool] = useState("DOT");
   return (
     <div id="app" className="snes-blockquote has-galaxy-bg">
       <div className="grid-container halves">

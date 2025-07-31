@@ -1,12 +1,11 @@
-import { BrushTool } from "dotting";
 import { useRef } from "react";
-import fillLogo from "../assets/fill-drip.svg";
-import lineLogo from "../assets/linear.svg";
+// import fillLogo from "../assets/fill-drip.svg";
+// import lineLogo from "../assets/linear.svg";
 import paintLogo from "../assets/paint-brush.svg";
-import rectangleLogo from "../assets/rectangle.svg";
-import ellipseLogo from "../assets/ellipse.svg";
-import redoLogo from "../assets/redo.svg";
-import undoLogo from "../assets/undo.svg";
+// import rectangleLogo from "../assets/rectangle.svg";
+// import ellipseLogo from "../assets/ellipse.svg";
+// import redoLogo from "../assets/redo.svg";
+// import undoLogo from "../assets/undo.svg";
 import eraser from "../assets/eraser.svg";
 /*
 REFERENCE - Supported Brush Options:
@@ -22,30 +21,14 @@ ELLIPSE = "ELLIPSE",
 ELLIPSE_FILLED = "ELLIPSE_FILLED" 
 */
 interface Props {
-  setBrushTool: (brushTool: BrushTool) => void;
-  undo: () => void;
-  redo: () => void;
+  setBrushTool: (brushTool: string) => void;
 }
-/**
- * A component that displays a horizontal bar of tools.
- * @param {Props} props - The component props.
- * @prop {function} setBrushTool - A function to set the current brush tool.
- * @prop {function} undo - A function to undo the last drawing action.
- * @prop {function} redo - A function to redo the last undone drawing action.
- * @returns {JSX.Element} The component.
- */
+
 export default function ToolPicker(props: Props) {
-  const { setBrushTool, undo, redo } = props;
+  const {setBrushTool} = props;
   const selectedTool = useRef("paint");
   return (
     <div id="toolPicker" className="nowrap">
-      <img
-        src={undoLogo}
-        className="undo toolLogo"
-        alt="Undo"
-        title="Undo"
-        onClick={() => undo()}
-      />
       <img
         src={paintLogo}
         className={`paint toolLogo ${selectedTool.current === "paint" ? "selected" : ""}`}
@@ -66,7 +49,7 @@ export default function ToolPicker(props: Props) {
           setBrushTool("ERASER");
         }}
       />
-      <img
+      {/* <img
         src={lineLogo}
         className={`line toolLogo ${selectedTool.current === "line" ? "selected" : ""}`}
         alt="Line"
@@ -75,8 +58,8 @@ export default function ToolPicker(props: Props) {
           selectedTool.current = "line";
           setBrushTool("LINE");
         }}
-      />
-      <img
+      /> */}
+      {/* <img
         src={fillLogo}
         className={`paint-bucket toolLogo ${selectedTool.current === "paint-bucket" ? "selected" : ""}`}
         alt="Paint Bucket"
@@ -85,8 +68,8 @@ export default function ToolPicker(props: Props) {
           selectedTool.current = "paint-bucket";
           setBrushTool("PAINT_BUCKET");
         }}
-      />
-      <img
+      /> */}
+      {/* <img
         src={rectangleLogo}
         className={`rectangle toolLogo ${selectedTool.current === "rectangle" ? "selected" : ""}`}
         alt="Rectangle"
@@ -105,14 +88,7 @@ export default function ToolPicker(props: Props) {
           selectedTool.current = "ellipse";
           setBrushTool("ELLIPSE");
         }}
-      />
-      <img
-        src={redoLogo}
-        className="redo toolLogo"
-        alt="Redo"
-        title="Redo"
-        onClick={() => redo()}
-      />
+      /> */}
     </div>
   );
 }

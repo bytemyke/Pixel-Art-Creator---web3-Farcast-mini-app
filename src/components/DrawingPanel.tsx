@@ -6,6 +6,7 @@ interface Props {
   width: number;
   height: number;
   selectedColor: string;
+  brushTool: string;
 }
 
 const exportComponentAsPNGz = (
@@ -36,7 +37,7 @@ const exportComponentAsPNGz = (
 };
 
 export default function DrawingPanel(props: Props) {
-  const { width, height, selectedColor } = props;
+  const { width, height, selectedColor, brushTool } = props;
 
   const panelRef = useRef<HTMLDivElement>(null);
   const [editing, setEditing] = useState(true);
@@ -50,6 +51,7 @@ export default function DrawingPanel(props: Props) {
         width={width}
         selectedColor={selectedColor}
         editing={editing}
+        brushTool={brushTool}
       />
     );
   }

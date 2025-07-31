@@ -3,11 +3,11 @@ import { useState, useRef } from "react";
 interface Props {
   selectedColor: string;
   editing:  boolean;
-  
+  brushTool: string
 }
 
 export default function Pixel(props : Props) {
-  const { selectedColor, editing } = props;
+  const { selectedColor, editing, brushTool} = props;
   const drawing = useRef(false);
   const [pixelColor, setPixelColor] = useState("#ffffff00");
   const [oldColor, setOldColor] = useState(pixelColor);
@@ -19,6 +19,11 @@ export default function Pixel(props : Props) {
       drawing.current = false;
     });
   function applyColor() {
+    if (brushTool === "ERASER") { 
+      setPixelColor("#ffffff00"); 
+      setCanChangeColor(false);
+      return;
+    };
     setPixelColor(selectedColor);
     setCanChangeColor(false);
   }

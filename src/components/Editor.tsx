@@ -4,10 +4,10 @@ import "../css/editor.scss";
 import { CirclePicker } from "react-color";
 import DrawingPanel from "./DrawingPanel";
 import ColorPalletEditor from "./ColorPaletteEditor";
-
+import ToolPicker from "./ToolPicker";
 
 interface color {
-  hex : string
+  hex: string;
 }
 export default function Editor() {
   const [panelWidth, setPanelWidth] = useState(16);
@@ -16,7 +16,8 @@ export default function Editor() {
   const [hideDrawingPanel, setHideDrawingPanel] = useState(true);
   const [buttonText, setButtonText] = useState("start drawing");
   const [selectedColor, setColor] = useState("#fff");
-  const [colorPallet, setColorPallet] = useState(['#ffffff', '#000000']);
+  const [colorPallet, setColorPallet] = useState(["#ffffff", "#000000"]);
+  const [brushTool, setBrushTool] = useState("DOT");
 
   function initializeDrawingPanel() {
     setHideOptions(!hideOptions);
@@ -27,7 +28,7 @@ export default function Editor() {
       : setButtonText("start drawing");
   }
 
-  function changeColor(color : color) {
+  function changeColor(color: color) {
     setColor(color.hex);
   }
 
@@ -41,7 +42,11 @@ export default function Editor() {
               type="number"
               className="panelInput"
               defaultValue={panelWidth}
+              max="99"
               onChange={(e) => {
+                if (parseInt(e.target.value) > 99) {
+                  e.target.value = "99";
+                }
                 setPanelWidth(parseInt(e.target.value));
               }}
             />
@@ -52,7 +57,11 @@ export default function Editor() {
               type="number"
               className="panelInput"
               defaultValue={panelHeight}
+              max="99"
               onChange={(e) => {
+                if (parseInt(e.target.value) > 99) {
+                  e.target.value = "99";
+                }
                 setPanelHeight(parseInt(e.target.value));
               }}
             />
@@ -61,7 +70,10 @@ export default function Editor() {
         </div>
       )}
 
-      <button onClick={initializeDrawingPanel} className="snes-button has-plumber-color">
+      <button
+        onClick={initializeDrawingPanel}
+        className="snes-button has-plumber-color"
+      >
         {buttonText}
       </button>
 
@@ -76,6 +88,7 @@ export default function Editor() {
             color={selectedColor}
             onChangeComplete={changeColor}
           />
+          <ToolPicker setBrushTool={setBrushTool} />
         </>
       )}
 
@@ -84,6 +97,7 @@ export default function Editor() {
           width={panelWidth}
           height={panelHeight}
           selectedColor={selectedColor}
+          brushTool={brushTool}
         />
       )}
     </div>
