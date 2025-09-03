@@ -1,6 +1,6 @@
 # Pixel Art Creator — web3 Farcaster Mini‑App
 
-A lightweight mini‑app built with **Vite** and the **@farcaster/create-mini-app** framework, enabling users to craft pixel art on the web and share via the Farcaster ecosystem.
+A lightweight mini‑app built with **React, Typescript, and Vite** and the **@farcaster/create-mini-app** framework, enabling users to craft pixel art on the web and share via the Farcaster ecosystem.
 
 ##  Features
 
